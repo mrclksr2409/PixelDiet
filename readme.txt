@@ -4,7 +4,7 @@ Tags: images, upload, resize, optimize, media
 Requires at least: 5.5
 Tested up to: 6.5
 Requires PHP: 7.2
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -40,6 +40,9 @@ Nein, PixelDiet verarbeitet ausschließlich neue Uploads. Bestehende Bilder blei
 Die Updates werden über GitHub-Releases im Repository `mrclksr2409/pixeldiet` bereitgestellt und über die Bibliothek plugin-update-checker direkt im WordPress-Backend angezeigt.
 
 == Changelog ==
+
+= 1.0.1 =
+* Plugin Update Checker auf v5.7 aktualisiert.
 
 = 1.0.0 =
 * Erste Veröffentlichung: automatisches Verkleinern beim Upload, Einstellungsseite, GitHub-Self-Update.

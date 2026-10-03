@@ -21,7 +21,7 @@ Funktionen:
 * Einstellbare JPEG-/WebP-Qualität
 * Auswahl, welche Dateitypen verarbeitet werden (JPEG, PNG, WebP)
 * Optional: Originaldatei als Backup behalten
-* Self-Updates direkt aus GitHub-Releases (via plugin-update-checker)
+* Self-Updates direkt vom GitHub-Branch main (via plugin-update-checker)
 
 == Installation ==
 
@@ -37,11 +37,12 @@ Nein, PixelDiet verarbeitet ausschließlich neue Uploads. Bestehende Bilder blei
 
 = Wo kommen die Updates her? =
 
-Die Updates werden über GitHub-Releases im Repository `mrclksr2409/pixeldiet` bereitgestellt und über die Bibliothek plugin-update-checker direkt im WordPress-Backend angezeigt.
+Die Updates werden direkt vom Branch `main` im Repository `mrclksr2409/pixeldiet` bereitgestellt und über die Bibliothek plugin-update-checker direkt im WordPress-Backend angezeigt.
 
 == Changelog ==
 
 = 1.0.1 =
+* Updates kommen jetzt direkt vom Branch main, GitHub-Releases werden ignoriert.
 * Plugin Update Checker auf v5.7 aktualisiert.
 
 = 1.0.0 =

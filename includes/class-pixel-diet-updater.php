@@ -1,6 +1,6 @@
 <?php
 /**
- * GitHub release update integration via plugin-update-checker.
+ * GitHub branch update integration via plugin-update-checker.
  *
  * Library: https://github.com/YahnisElsts/plugin-update-checker
  */
@@ -33,11 +33,23 @@ class Pixel_Diet_Updater {
 			self::SLUG
 		);
 
+		// Updates come straight from the branch HEAD (version from the plugin header).
 		$update_checker->setBranch( self::BRANCH );
 
-		$vcs_api = $update_checker->getVcsApi();
-		if ( $vcs_api && method_exists( $vcs_api, 'enableReleaseAssets' ) ) {
-			$vcs_api->enableReleaseAssets( '/pixel-diet.*\.zip$/i' );
-		}
+		add_filter(
+			$update_checker->getUniqueName( 'vcs_update_detection_strategies' ),
+			array( $this, 'filter_strategies' )
+		);
+	}
+
+	/**
+	 * Ignore GitHub releases and tags so only the configured branch is used.
+	 *
+	 * @param array $strategies Update detection strategies.
+	 * @return array
+	 */
+	public function filter_strategies( $strategies ) {
+		unset( $strategies['latest_release'], $strategies['latest_tag'] );
+		return $strategies;
 	}
 }

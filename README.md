@@ -11,7 +11,7 @@ Einstellungen hinterlegte maximale Größe verkleinert.
   - JPEG-/WebP-Qualität (1-100)
   - Auswahl der zu verarbeitenden Dateitypen (JPEG, PNG, WebP)
   - Optional: Original als `<datei>.original.<ext>` als Backup behalten
-- Self-Update über GitHub-Releases via
+- Self-Update direkt vom GitHub-Branch `main` via
   [plugin-update-checker](https://github.com/YahnisElsts/plugin-update-checker)
   von YahnisElsts (eingecheckt unter `vendor/plugin-update-checker/`)
 
@@ -26,25 +26,15 @@ Einstellungen hinterlegte maximale Größe verkleinert.
 
 ## Release-Workflow (für Maintainer)
 
-Damit das Self-Update funktioniert, müssen neue Versionen als GitHub-Release
-veröffentlicht werden:
+Updates werden direkt vom Branch `main` ausgeliefert. GitHub-Releases und Tags
+werden vom Updater ignoriert.
 
-1. Versionsnummer in `pixel-diet.php` (Plugin-Header **und** Konstante
+1. Entwickeln auf dem Branch `beta`.
+2. Versionsnummer in `pixel-diet.php` (Plugin-Header **und** Konstante
    `PIXEL_DIET_VERSION`) sowie in `readme.txt` (`Stable tag`) erhöhen.
-2. Änderungen committen und pushen.
-3. Tag setzen, z. B. `git tag v1.1.0 && git push origin v1.1.0`.
-4. Auf GitHub → *Releases* → *Draft a new release* den Tag auswählen.
-5. Ein ZIP-Asset namens z. B. `pixel-diet-1.1.0.zip` an den Release anhängen.
-   Das ZIP muss den Plugin-Ordner `pixel-diet/` mit allen Dateien (inkl.
-   `vendor/plugin-update-checker/`) enthalten.
-6. Release veröffentlichen. WordPress-Installationen sehen das Update beim
-   nächsten automatischen Check (alle 12 h) bzw. sofort über
-   *Dashboard → Aktualisierungen → Erneut prüfen*.
-
-> Wenn kein ZIP-Asset angehängt wird, fällt das plugin-update-checker auf den
-> automatisch von GitHub erzeugten Tag-Tarball zurück. Ein eigenes ZIP-Asset
-> ist aber empfehlenswert, weil es auch die `vendor/`-Bibliothek garantiert
-> mitbringt.
+3. `beta` nach `main` übernehmen und pushen.
+4. WordPress-Installationen sehen das Update beim nächsten automatischen Check
+   (alle 12 h) bzw. sofort über *Dashboard → Aktualisierungen → Erneut prüfen*.
 
 ## Lizenz
 

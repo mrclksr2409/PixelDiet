@@ -4,7 +4,7 @@ Tags: images, upload, resize, optimize, media
 Requires at least: 5.5
 Tested up to: 6.5
 Requires PHP: 7.2
-Stable tag: 1.1.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -41,6 +41,10 @@ Nein, PixelDiet verarbeitet ausschließlich neue Uploads. Bestehende Bilder blei
 Die Updates werden direkt vom Branch `main` im Repository `mrclksr2409/pixeldiet` bereitgestellt und über die Bibliothek plugin-update-checker direkt im WordPress-Backend angezeigt.
 
 == Changelog ==
+
+= 1.2.0 =
+* Neu: Beta-Update-Kanal. Unter Einstellungen → PixelDiet → Updates lassen sich Updates vom Branch "beta" statt "main" beziehen.
+* Beim Wechsel des Update-Kanals wird der zwischengespeicherte Update-Status verworfen, damit der nächste Check sofort den gewählten Branch nutzt.
 
 = 1.1.0 =
 * Einstellungsseite im einheitlichen Admin-Design über die gebündelte Bibliothek WP-Backend UI 1.0.2 (unter lib/wp-backend-ui/).

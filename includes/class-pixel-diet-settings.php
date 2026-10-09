@@ -26,6 +26,7 @@ class Pixel_Diet_Settings {
 			'jpeg_quality'  => 82,
 			'mime_types'    => array( 'image/jpeg', 'image/png', 'image/webp' ),
 			'keep_original' => 0,
+			'beta_updates'  => 0,
 		);
 	}
 
@@ -67,6 +68,15 @@ class Pixel_Diet_Settings {
 		add_settings_field( 'jpeg_quality', __( 'JPEG-/WebP-Qualität (1-100)', 'pixel-diet' ), array( $this, 'field_jpeg_quality' ), self::PAGE_SLUG, 'pixel_diet_section_main' );
 		add_settings_field( 'mime_types', __( 'Zu verarbeitende Dateitypen', 'pixel-diet' ), array( $this, 'field_mime_types' ), self::PAGE_SLUG, 'pixel_diet_section_main' );
 		add_settings_field( 'keep_original', __( 'Original-Backup behalten', 'pixel-diet' ), array( $this, 'field_keep_original' ), self::PAGE_SLUG, 'pixel_diet_section_main' );
+
+		add_settings_section(
+			'pixel_diet_section_updates',
+			__( 'Updates', 'pixel-diet' ),
+			array( $this, 'render_section_updates' ),
+			self::PAGE_SLUG
+		);
+
+		add_settings_field( 'beta_updates', __( 'Beta-Updates', 'pixel-diet' ), array( $this, 'field_beta_updates' ), self::PAGE_SLUG, 'pixel_diet_section_updates' );
 	}
 
 	public function register_menu() {
@@ -94,6 +104,15 @@ class Pixel_Diet_Settings {
 
 		$out['enabled']       = ! empty( $input['enabled'] ) ? 1 : 0;
 		$out['keep_original'] = ! empty( $input['keep_original'] ) ? 1 : 0;
+		$out['beta_updates']  = ! empty( $input['beta_updates'] ) ? 1 : 0;
+
+		// Switching the update channel drops the cached update state so the
+		// next check reads the version from the other branch.
+		$current = self::get_settings();
+		if ( $out['beta_updates'] !== (int) $current['beta_updates'] ) {
+			delete_site_option( 'external_updates-' . Pixel_Diet_Updater::SLUG );
+			delete_site_transient( 'update_plugins' );
+		}
 
 		$max_width        = isset( $input['max_width'] ) ? absint( $input['max_width'] ) : $defaults['max_width'];
 		$out['max_width'] = max( 100, min( 20000, $max_width ) );
@@ -187,6 +206,21 @@ class Pixel_Diet_Settings {
 			1 === (int) $s['keep_original'],
 			__( 'Vor dem Verkleinern eine Kopie als <Dateiname>.original.<Endung> speichern', 'pixel-diet' )
 		);
+	}
+
+	public function render_section_updates() {
+		echo '<p>' . esc_html__( 'Updates werden direkt aus GitHub geladen.', 'pixel-diet' ) . '</p>';
+	}
+
+	public function field_beta_updates() {
+		$s = self::get_settings();
+		// Toggle output is escaped by WPB_Admin_UI::toggle().
+		echo WPB_Admin_UI::toggle( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			self::OPTION_KEY . '[beta_updates]',
+			1 === (int) $s['beta_updates'],
+			__( 'Beta-Versionen installieren (Branch „beta“ statt „main“)', 'pixel-diet' )
+		);
+		echo '<p class="description">' . esc_html__( 'Beta-Versionen enthalten neue Funktionen vor dem offiziellen Release und können Fehler enthalten. Nach dem Zurückschalten auf stabile Updates wird erst wieder aktualisiert, sobald die Version auf „main“ höher ist als die installierte Beta.', 'pixel-diet' ) . '</p>';
 	}
 
 	public function render_page() {

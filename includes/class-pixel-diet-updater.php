@@ -13,7 +13,8 @@ class Pixel_Diet_Updater {
 
 	const REPO_URL = 'https://github.com/mrclksr2409/pixeldiet/';
 	const SLUG     = 'pixel-diet';
-	const BRANCH   = 'main';
+	const BRANCH      = 'main';
+	const BETA_BRANCH = 'beta';
 
 	public function __construct() {
 		$loader = PIXEL_DIET_PATH . 'vendor/plugin-update-checker/plugin-update-checker.php';
@@ -33,8 +34,10 @@ class Pixel_Diet_Updater {
 			self::SLUG
 		);
 
-		// Updates come straight from the branch HEAD (version from the plugin header).
-		$update_checker->setBranch( self::BRANCH );
+		// Updates come straight from the branch HEAD (version from the plugin header):
+		// the beta branch when beta updates are enabled in the settings, otherwise main.
+		$settings = Pixel_Diet_Settings::get_settings();
+		$update_checker->setBranch( ! empty( $settings['beta_updates'] ) ? self::BETA_BRANCH : self::BRANCH );
 
 		add_filter(
 			$update_checker->getUniqueName( 'vcs_update_detection_strategies' ),

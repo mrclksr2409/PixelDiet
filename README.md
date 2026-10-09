@@ -39,7 +39,10 @@ Einstellungen hinterlegte maximale Größe verkleinert.
 ## Release-Workflow (für Maintainer)
 
 Updates werden direkt vom Branch `main` ausgeliefert. GitHub-Releases und Tags
-werden vom Updater ignoriert.
+werden vom Updater ignoriert. Ist unter **Einstellungen → PixelDiet → Updates**
+die Option *Beta-Updates* aktiv, kommen die Updates stattdessen vom Branch
+`beta`. Damit ein Beta-Update angeboten wird, muss die Version auf `beta` höher
+sein als die installierte (z. B. `1.3.0-beta.1`).
 
 1. Entwickeln auf dem Branch `beta`.
 2. Versionsnummer in `pixel-diet.php` (Plugin-Header **und** Konstante
@@ -66,6 +69,12 @@ Update die neue Version aus dem WP-Backend-UI-Repository nach
 `lib/wp-backend-ui/` kopieren (ohne `demo/`, `examples/`, `docs/`, `.git`).
 
 ## Changelog
+
+### 1.2.0
+- Neu: Beta-Update-Kanal. Unter **Einstellungen → PixelDiet → Updates** lassen
+  sich Updates vom Branch `beta` statt `main` beziehen.
+- Beim Wechsel des Update-Kanals wird der zwischengespeicherte Update-Status
+  verworfen, damit der nächste Check sofort den gewählten Branch nutzt.
 
 ### 1.1.0
 - Einstellungsseite im einheitlichen Admin-Design über die gebündelte

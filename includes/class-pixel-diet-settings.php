@@ -118,11 +118,11 @@ class Pixel_Diet_Settings {
 
 	public function field_enabled() {
 		$s = self::get_settings();
-		printf(
-			'<label><input type="checkbox" name="%1$s[enabled]" value="1" %2$s /> %3$s</label>',
-			esc_attr( self::OPTION_KEY ),
-			checked( 1, (int) $s['enabled'], false ),
-			esc_html__( 'Bilder beim Upload automatisch verkleinern', 'pixel-diet' )
+		// Toggle output is escaped by WPB_Admin_UI::toggle().
+		echo WPB_Admin_UI::toggle( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			self::OPTION_KEY . '[enabled]',
+			1 === (int) $s['enabled'],
+			__( 'Bilder beim Upload automatisch verkleinern', 'pixel-diet' )
 		);
 	}
 
@@ -161,24 +161,31 @@ class Pixel_Diet_Settings {
 			'image/png'  => 'PNG (.png)',
 			'image/webp' => 'WebP (.webp)',
 		);
+		echo '<fieldset><legend class="screen-reader-text"><span>' . esc_html__( 'Zu verarbeitende Dateitypen', 'pixel-diet' ) . '</span></legend>';
+		$first = true;
 		foreach ( $choices as $mime => $label ) {
+			if ( ! $first ) {
+				echo '<br />';
+			}
+			$first = false;
 			printf(
-				'<label style="display:block;margin-bottom:4px;"><input type="checkbox" name="%1$s[mime_types][]" value="%2$s" %3$s /> %4$s</label>',
+				'<label><input type="checkbox" name="%1$s[mime_types][]" value="%2$s" %3$s /> %4$s</label>',
 				esc_attr( self::OPTION_KEY ),
 				esc_attr( $mime ),
 				checked( true, in_array( $mime, (array) $s['mime_types'], true ), false ),
 				esc_html( $label )
 			);
 		}
+		echo '</fieldset>';
 	}
 
 	public function field_keep_original() {
 		$s = self::get_settings();
-		printf(
-			'<label><input type="checkbox" name="%1$s[keep_original]" value="1" %2$s /> %3$s</label>',
-			esc_attr( self::OPTION_KEY ),
-			checked( 1, (int) $s['keep_original'], false ),
-			esc_html__( 'Vor dem Verkleinern eine Kopie als <Dateiname>.original.<Endung> speichern', 'pixel-diet' )
+		// Toggle output is escaped by WPB_Admin_UI::toggle().
+		echo WPB_Admin_UI::toggle( // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			self::OPTION_KEY . '[keep_original]',
+			1 === (int) $s['keep_original'],
+			__( 'Vor dem Verkleinern eine Kopie als <Dateiname>.original.<Endung> speichern', 'pixel-diet' )
 		);
 	}
 
@@ -188,7 +195,16 @@ class Pixel_Diet_Settings {
 		}
 		?>
 		<div class="wrap">
-			<h1><?php esc_html_e( 'PixelDiet – Einstellungen', 'pixel-diet' ); ?></h1>
+			<?php
+			WPB_Admin_UI::header(
+				array(
+					'title'    => 'PixelDiet',
+					'subtitle' => __( 'Verkleinert hochgeladene Bilder automatisch auf die hier eingestellte Maximalgröße.', 'pixel-diet' ),
+					'icon'     => 'dashicons-format-image',
+					'version'  => PIXEL_DIET_VERSION,
+				)
+			);
+			?>
 			<form method="post" action="options.php">
 				<?php
 				settings_fields( 'pixel_diet_group' );

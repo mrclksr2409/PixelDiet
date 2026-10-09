@@ -4,7 +4,7 @@ Tags: images, upload, resize, optimize, media
 Requires at least: 5.5
 Tested up to: 6.5
 Requires PHP: 7.2
-Stable tag: 1.0.1
+Stable tag: 1.1.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -22,6 +22,7 @@ Funktionen:
 * Auswahl, welche Dateitypen verarbeitet werden (JPEG, PNG, WebP)
 * Optional: Originaldatei als Backup behalten
 * Self-Updates direkt vom GitHub-Branch main (via plugin-update-checker)
+* Einheitliches, modernes Admin-Design (gebündelte Bibliothek WP-Backend UI)
 
 == Installation ==
 
@@ -40,6 +41,12 @@ Nein, PixelDiet verarbeitet ausschließlich neue Uploads. Bestehende Bilder blei
 Die Updates werden direkt vom Branch `main` im Repository `mrclksr2409/pixeldiet` bereitgestellt und über die Bibliothek plugin-update-checker direkt im WordPress-Backend angezeigt.
 
 == Changelog ==
+
+= 1.1.0 =
+* Einstellungsseite im einheitlichen Admin-Design über die gebündelte Bibliothek WP-Backend UI 1.0.1 (unter lib/wp-backend-ui/).
+* Neuer Seitenkopf mit Icon, Untertitel und Versionsanzeige.
+* "Plugin aktiv" und "Original-Backup behalten" als Schalter (Toggle).
+* Dateityp-Auswahl als barrierearmes Fieldset ohne Inline-Styles.
 
 = 1.0.1 =
 * Updates kommen jetzt direkt vom Branch main, GitHub-Releases werden ignoriert.

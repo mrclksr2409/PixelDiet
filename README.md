@@ -14,6 +14,18 @@ Einstellungen hinterlegte maximale Größe verkleinert.
 - Self-Update direkt vom GitHub-Branch `main` via
   [plugin-update-checker](https://github.com/YahnisElsts/plugin-update-checker)
   von YahnisElsts (eingecheckt unter `vendor/plugin-update-checker/`)
+- Einheitliches, modernes Admin-Design über die gemeinsame Bibliothek
+  **WP-Backend UI** (gebündelt unter `lib/wp-backend-ui/`)
+
+## Voraussetzungen
+
+- WordPress 5.5+
+- PHP 7.2+
+- Gebündelt (keine separate Installation nötig):
+  - WP-Backend UI 1.0.1 (`lib/wp-backend-ui/`) – gemeinsames Admin-Design.
+    Bündeln mehrere Plugins unterschiedliche Kopien, lädt WordPress nur die
+    neueste.
+  - plugin-update-checker v5.7 (`vendor/plugin-update-checker/`)
 
 ## Installation
 
@@ -36,7 +48,42 @@ werden vom Updater ignoriert.
 4. WordPress-Installationen sehen das Update beim nächsten automatischen Check
    (alle 12 h) bzw. sofort über *Dashboard → Aktualisierungen → Erneut prüfen*.
 
+## Projektstruktur
+
+```
+pixel-diet.php                       Plugin-Header, Konstanten, Bootstrap
+includes/class-pixel-diet.php        Singleton, initialisiert die Komponenten
+includes/class-pixel-diet-settings.php  Einstellungsseite (Settings API)
+includes/class-pixel-diet-resizer.php   Verkleinern beim Upload
+includes/class-pixel-diet-updater.php   Self-Update via plugin-update-checker
+lib/wp-backend-ui/                   Gebündelte Bibliothek WP-Backend UI (nicht ändern)
+vendor/plugin-update-checker/        Gebündelte Bibliothek plugin-update-checker
+uninstall.php                        Entfernt die Option beim Löschen
+```
+
+Die gebündelte Kopie von WP-Backend UI wird nicht direkt bearbeitet. Für ein
+Update die neue Version aus dem WP-Backend-UI-Repository nach
+`lib/wp-backend-ui/` kopieren (ohne `demo/`, `examples/`, `docs/`, `.git`).
+
+## Changelog
+
+### 1.1.0
+- Einstellungsseite im einheitlichen Admin-Design über die gebündelte
+  Bibliothek WP-Backend UI 1.0.1 (`lib/wp-backend-ui/`).
+- Neuer Seitenkopf mit Icon, Untertitel und Versionsanzeige.
+- „Plugin aktiv“ und „Original-Backup behalten“ als Schalter (Toggle).
+- Dateityp-Auswahl als barrierearmes Fieldset ohne Inline-Styles.
+
+### 1.0.1
+- Updates kommen jetzt direkt vom Branch `main`, GitHub-Releases werden ignoriert.
+- Plugin Update Checker auf v5.7 aktualisiert.
+
+### 1.0.0
+- Erste Veröffentlichung: automatisches Verkleinern beim Upload,
+  Einstellungsseite, GitHub-Self-Update.
+
 ## Lizenz
 
 GPL-2.0-or-later. Die enthaltene Bibliothek `plugin-update-checker` steht
-unter MIT-Lizenz; siehe `vendor/plugin-update-checker/license.txt`.
+unter MIT-Lizenz; siehe `vendor/plugin-update-checker/license.txt`. Die
+enthaltene Bibliothek WP-Backend UI steht unter GPL-2.0-or-later.

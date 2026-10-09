@@ -3,7 +3,7 @@
  * Plugin Name:       PixelDiet
  * Plugin URI:        https://github.com/mrclksr2409/pixeldiet
  * Description:       Verkleinert hochgeladene Bilder automatisch auf eine in den Einstellungen hinterlegte maximale Größe und reduziert so Speicherplatz und Ladezeiten.
- * Version:           1.0.1
+ * Version:           1.1.0
  * Requires at least: 5.5
  * Requires PHP:      7.2
  * Author:            mrclksr2409
@@ -18,16 +18,21 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-define( 'PIXEL_DIET_VERSION', '1.0.1' );
+define( 'PIXEL_DIET_VERSION', '1.1.0' );
 define( 'PIXEL_DIET_FILE', __FILE__ );
 define( 'PIXEL_DIET_PATH', plugin_dir_path( __FILE__ ) );
 define( 'PIXEL_DIET_URL', plugin_dir_url( __FILE__ ) );
 define( 'PIXEL_DIET_OPTION', 'pixel_diet_settings' );
 
+// Shared admin design system (bundled library, newest copy across plugins wins).
+require_once PIXEL_DIET_PATH . 'lib/wp-backend-ui/wp-backend-ui.php';
+
 require_once PIXEL_DIET_PATH . 'includes/class-pixel-diet-settings.php';
 require_once PIXEL_DIET_PATH . 'includes/class-pixel-diet-resizer.php';
 require_once PIXEL_DIET_PATH . 'includes/class-pixel-diet-updater.php';
 require_once PIXEL_DIET_PATH . 'includes/class-pixel-diet.php';
+
+wpb_admin_ui_register( array( 'pages' => array( Pixel_Diet_Settings::PAGE_SLUG ) ) );
 
 register_activation_hook( __FILE__, array( 'Pixel_Diet_Settings', 'set_defaults_on_activate' ) );
 

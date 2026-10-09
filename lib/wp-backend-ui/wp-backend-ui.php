@@ -12,14 +12,14 @@
  * all plugins share the same class and the same stylesheet.
  *
  * @package WP_Backend_UI
- * @version 1.0.1
+ * @version 1.0.2
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-$GLOBALS['wpb_admin_ui_candidates']['1.0.1'] = __FILE__;
+$GLOBALS['wpb_admin_ui_candidates']['1.0.2'] = __FILE__;
 
 if ( ! function_exists( 'wpb_admin_ui_boot' ) ) {
 

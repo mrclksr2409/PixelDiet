@@ -19,7 +19,7 @@ final class WPB_Admin_UI {
 	/**
 	 * Library version (also used as asset version).
 	 */
-	const VERSION = '1.0.1';
+	const VERSION = '1.0.2';
 
 	/**
 	 * Asset handle (shared by every plugin bundling the library).

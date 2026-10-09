@@ -123,16 +123,17 @@ body.wpb-admin,
 	color: var(--wpb-text);
 }
 
-/* Settings API section headings (h2 directly inside the form). */
-.wpb-admin .wrap form > h2 {
+/* Settings API section headings (plain h2 anywhere inside a form, e.g. in tab panels). */
+.wpb-admin .wrap form h2:not([class]) {
 	margin: var(--wpb-space-6) 0 var(--wpb-space-1);
 }
 
-.wpb-admin .wrap form > h2:first-of-type {
+.wpb-admin .wrap form > h2:not([class]):first-of-type,
+.wpb-admin .wrap form h2:not([class]):first-child {
 	margin-top: var(--wpb-space-5);
 }
 
-.wpb-admin .wrap form > h2 + p {
+.wpb-admin .wrap form h2:not([class]) + p {
 	margin-top: 0;
 	color: var(--wpb-text-muted);
 }

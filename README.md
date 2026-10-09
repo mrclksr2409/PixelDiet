@@ -22,7 +22,7 @@ Einstellungen hinterlegte maximale Größe verkleinert.
 - WordPress 5.5+
 - PHP 7.2+
 - Gebündelt (keine separate Installation nötig):
-  - WP-Backend UI 1.0.1 (`lib/wp-backend-ui/`) – gemeinsames Admin-Design.
+  - WP-Backend UI 1.0.2 (`lib/wp-backend-ui/`) – gemeinsames Admin-Design.
     Bündeln mehrere Plugins unterschiedliche Kopien, lädt WordPress nur die
     neueste.
   - plugin-update-checker v5.7 (`vendor/plugin-update-checker/`)
@@ -69,7 +69,7 @@ Update die neue Version aus dem WP-Backend-UI-Repository nach
 
 ### 1.1.0
 - Einstellungsseite im einheitlichen Admin-Design über die gebündelte
-  Bibliothek WP-Backend UI 1.0.1 (`lib/wp-backend-ui/`).
+  Bibliothek WP-Backend UI 1.0.2 (`lib/wp-backend-ui/`).
 - Neuer Seitenkopf mit Icon, Untertitel und Versionsanzeige.
 - „Plugin aktiv“ und „Original-Backup behalten“ als Schalter (Toggle).
 - Dateityp-Auswahl als barrierearmes Fieldset ohne Inline-Styles.

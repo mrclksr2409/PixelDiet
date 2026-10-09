@@ -43,7 +43,7 @@ Die Updates werden direkt vom Branch `main` im Repository `mrclksr2409/pixeldiet
 == Changelog ==
 
 = 1.1.0 =
-* Einstellungsseite im einheitlichen Admin-Design über die gebündelte Bibliothek WP-Backend UI 1.0.1 (unter lib/wp-backend-ui/).
+* Einstellungsseite im einheitlichen Admin-Design über die gebündelte Bibliothek WP-Backend UI 1.0.2 (unter lib/wp-backend-ui/).
 * Neuer Seitenkopf mit Icon, Untertitel und Versionsanzeige.
 * "Plugin aktiv" und "Original-Backup behalten" als Schalter (Toggle).
 * Dateityp-Auswahl als barrierearmes Fieldset ohne Inline-Styles.

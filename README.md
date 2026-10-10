@@ -70,6 +70,10 @@ Update die neue Version aus dem WP-Backend-UI-Repository nach
 
 ## Changelog
 
+### 1.2.1
+- Autor ist jetzt Marcel Kaiser, Autor-Link auf das GitHub-Profil.
+- Neuer Link „Wiki“ in der Plugin-Übersicht.
+
 ### 1.2.0
 - Neu: Beta-Update-Kanal. Unter **Einstellungen → PixelDiet → Updates** lassen
   sich Updates vom Branch `beta` statt `main` beziehen.

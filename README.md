@@ -3,6 +3,8 @@
 WordPress-Plugin, das hochgeladene Bilder automatisch auf eine in den
 Einstellungen hinterlegte maximale Größe verkleinert.
 
+📖 **Ausführliche Dokumentation im [Wiki](https://github.com/mrclksr2409/PixelDiet/wiki)**
+
 ## Features
 
 - Automatisches Verkleinern direkt nach dem Upload (`wp_handle_upload`-Hook)

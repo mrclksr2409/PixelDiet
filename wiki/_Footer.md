@@ -1,0 +1,1 @@
+PixelDiet · [Repository](https://github.com/mrclksr2409/PixelDiet) · [Issues](https://github.com/mrclksr2409/PixelDiet/issues) — Diese Seiten werden aus dem Ordner `wiki/` im Repository erzeugt. Änderungen bitte dort vornehmen.

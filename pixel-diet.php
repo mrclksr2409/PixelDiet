@@ -1,12 +1,12 @@
 <?php
 /**
  * Plugin Name:       PixelDiet
- * Plugin URI:        https://github.com/mrclksr2409/pixeldiet
+ * Plugin URI:        https://github.com/mrclksr2409/PixelDiet
  * Description:       Verkleinert hochgeladene Bilder automatisch auf eine in den Einstellungen hinterlegte maximale Größe und reduziert so Speicherplatz und Ladezeiten.
  * Version:           1.2.0
  * Requires at least: 5.5
  * Requires PHP:      7.2
- * Author:            mrclksr2409
+ * Author:            Marcel Kaiser
  * Author URI:        https://github.com/mrclksr2409
  * License:           GPL-2.0-or-later
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html

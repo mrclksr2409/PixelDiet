@@ -16,6 +16,7 @@ class Pixel_Diet_Settings {
 		add_action( 'admin_init', array( $this, 'register_settings' ) );
 		add_action( 'admin_menu', array( $this, 'register_menu' ) );
 		add_filter( 'plugin_action_links_' . plugin_basename( PIXEL_DIET_FILE ), array( $this, 'action_links' ) );
+		add_filter( 'plugin_row_meta', array( $this, 'row_meta' ), 10, 2 );
 	}
 
 	public static function defaults() {
@@ -95,6 +96,13 @@ class Pixel_Diet_Settings {
 			array( '<a href="' . esc_url( $url ) . '">' . esc_html__( 'Einstellungen', 'pixel-diet' ) . '</a>' ),
 			$links
 		);
+		return $links;
+	}
+
+	public function row_meta( $links, $file ) {
+		if ( plugin_basename( PIXEL_DIET_FILE ) === $file ) {
+			$links[] = '<a href="' . esc_url( 'https://github.com/mrclksr2409/PixelDiet/wiki' ) . '" target="_blank" rel="noopener noreferrer">' . esc_html__( 'Wiki', 'pixel-diet' ) . '</a>';
+		}
 		return $links;
 	}
 

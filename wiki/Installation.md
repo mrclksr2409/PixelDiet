@@ -13,7 +13,7 @@ Alles Weitere ist gebündelt und muss nicht separat installiert werden:
 
 - **WP-Backend UI 1.0.2** (`lib/wp-backend-ui/`) – gemeinsames Admin-Design. Bündeln mehrere
   Plugins unterschiedliche Kopien, lädt WordPress nur die neueste.
-- **plugin-update-checker v5.7** (`vendor/plugin-update-checker/`) – für die Updates aus GitHub.
+- **plugin-update-checker v6.0** (`vendor/plugin-update-checker/`) – für die Updates aus GitHub.
 
 ## Plugin installieren
 

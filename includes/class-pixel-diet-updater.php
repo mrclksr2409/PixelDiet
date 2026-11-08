@@ -24,11 +24,11 @@ class Pixel_Diet_Updater {
 
 		require_once $loader;
 
-		if ( ! class_exists( '\\YahnisElsts\\PluginUpdateChecker\\v5\\PucFactory' ) ) {
+		if ( ! class_exists( '\\YahnisElsts\\PluginUpdateChecker\\v6\\PucFactory' ) ) {
 			return;
 		}
 
-		$update_checker = \YahnisElsts\PluginUpdateChecker\v5\PucFactory::buildUpdateChecker(
+		$update_checker = \YahnisElsts\PluginUpdateChecker\v6\PucFactory::buildUpdateChecker(
 			self::REPO_URL,
 			PIXEL_DIET_FILE,
 			self::SLUG

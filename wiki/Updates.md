@@ -1,7 +1,7 @@
 # Updates
 
 PixelDiet aktualisiert sich über den
-[Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker) (v5.7, gebündelt unter
+[Plugin Update Checker](https://github.com/YahnisElsts/plugin-update-checker) (v6.0, gebündelt unter
 `vendor/plugin-update-checker/`) direkt aus dem GitHub-Repository
 [`mrclksr2409/PixelDiet`](https://github.com/mrclksr2409/PixelDiet) – wie ein Plugin aus dem
 offiziellen Verzeichnis.

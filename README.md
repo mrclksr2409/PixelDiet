@@ -27,7 +27,7 @@ Einstellungen hinterlegte maximale Größe verkleinert.
   - WP-Backend UI 1.0.2 (`lib/wp-backend-ui/`) – gemeinsames Admin-Design.
     Bündeln mehrere Plugins unterschiedliche Kopien, lädt WordPress nur die
     neueste.
-  - plugin-update-checker v5.7 (`vendor/plugin-update-checker/`)
+  - plugin-update-checker v6.0 (`vendor/plugin-update-checker/`)
 
 ## Installation
 
@@ -71,6 +71,9 @@ Update die neue Version aus dem WP-Backend-UI-Repository nach
 `lib/wp-backend-ui/` kopieren (ohne `demo/`, `examples/`, `docs/`, `.git`).
 
 ## Changelog
+
+### 1.2.2 — 2026-11-08
+- Plugin Update Checker auf v6.0 aktualisiert.
 
 ### 1.2.1
 - Autor ist jetzt Marcel Kaiser, Autor-Link auf das GitHub-Profil.

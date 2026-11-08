@@ -1,5 +1,8 @@
 # Changelog
 
+## 1.2.2 — 2026-11-08
+- Plugin Update Checker auf v6.0 aktualisiert.
+
 ## 1.2.1
 - Autor ist jetzt Marcel Kaiser, Autor-Link auf das GitHub-Profil.
 - Neuer Link „Wiki“ in der Plugin-Übersicht.

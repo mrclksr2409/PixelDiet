@@ -27,7 +27,7 @@ pixel-diet/
 │   ├── class-pixel-diet-resizer.php        Verkleinern beim Upload, Qualitätsfilter
 │   └── class-pixel-diet-updater.php        Self-Update via plugin-update-checker
 ├── lib/wp-backend-ui/                      Gebündelte Bibliothek WP-Backend UI 1.0.2 (nicht ändern)
-├── vendor/plugin-update-checker/           Gebündelte Bibliothek plugin-update-checker v5.7
+├── vendor/plugin-update-checker/           Gebündelte Bibliothek plugin-update-checker v6.0
 └── wiki/                                   Quelle dieses Wikis
 ```
 
